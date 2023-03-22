@@ -6,20 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-  <button onclick="reveal()">Click here to start</button>
-  <div id="scoreboard">
-    <div class="score">
-      User 
+  <button onclick="reveal()" class="start">Click here to start</button>
+  <div id="scoreboard" class="hidden">
+    <div data= "user" class="score">
+      User <br> 0
     </div>
-    <div class="score">
-      Computer
+    <div data="computer" class="score">
+      Computer <br> 0
     </div>
   </div>
   <br>
-  <button onclick="game()"><img src="images/rock.png" height="150px" width="150px"></button>
-  <button onclick="game()"><img src="images/scissors.png" height="150px" width="150px"></button>
-  <button onclick="game()"><img src="images/paper.png" height="150px" width="150px"></button>
+  <button class="game hidden" data="rock"><img src="images/rock.png" height="150px" width="150px"></button>
+  <button class="game hidden" data="scissors"><img src="images/scissors.png" height="150px" width="150px"></button>
+  <button class="game hidden" data="paper"><img src="images/paper.png" height="150px" width="150px"></button>
 </body>
 </html>
