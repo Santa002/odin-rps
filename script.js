@@ -1,10 +1,6 @@
 let userScore = 0;
 let computerScore = 0;
-let elements = document.getElementsByClassName("game");
 
-for(var i = 0; i < elements.length; i++){
-  console.log(elements[i]);
-}
 
 function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
@@ -16,6 +12,19 @@ function getComputerChoice() {
     case 2:
       return 'scissors';
   }
+}
+
+function reset(){
+  setTimeout(function(){
+  userScore = 0;
+  computerScore = 0;
+  var element = document.getElementById('user');
+  element.innerHTML = "User <br> " + userScore; 
+  element = document.getElementById('computer');
+  element.innerHTML = "Computer <br> " + computerScore; 
+  document.getElementById('result').innerHTML = "";    
+  }, 5000)
+
 }
 
 function playRound(playerSelection, computerSelection){
@@ -36,13 +45,60 @@ function playRound(playerSelection, computerSelection){
   }
 }
 
-
-var game = function(){
-  let computerSelection = getComputerChoice();
-  let playerSelection = this.getAttribute("data")
-  alert("asdasdasd")
+function rock(){
+  var round = playRound('paper', getComputerChoice())
+  if(round == 'You win!'){
+    var element = document.getElementById('user');
+    element.innerHTML = "User <br> " + userScore++; 
+  }else{
+    var element = document.getElementById('computer');
+    element.innerHTML = "Computer <br> " + computerScore++; 
+  }
+  if(userScore == 5){
+    document.getElementById('result').innerHTML = 'WINNER!!!!'
+    reset();
+  }
+  if(computerScore == 5){
+    document.getElementById('result').innerHTML = "LOSER RIP BOZO"
+    reset();
+  }
 }
 
-for(let i = 0; i < elements.length; i++){
-  elements[i].addEventListener("click", game);
+function scissors(){
+  var round = playRound('paper', getComputerChoice())
+  if(round == 'You win!'){
+    var element = document.getElementById('user');
+    element.innerHTML = "User <br> " + userScore++; 
+  }else{
+    var element = document.getElementById('computer');
+    element.innerHTML = "Computer <br> " + computerScore++; 
+  }
+  if(userScore == 5){
+    document.getElementById('result').innerHTML = 'WINNER!!!!'
+    reset();
+  }
+  if(computerScore == 5){
+    document.getElementById('result').innerHTML = "LOSER RIP BOZO"
+    reset();
+  }
 }
+
+function paper(){
+  var round = playRound('paper', getComputerChoice())
+  if(round == 'You win!'){
+    var element = document.getElementById('user');
+    element.innerHTML = "User <br> " + userScore++; 
+  }else{
+    var element = document.getElementById('computer');
+    element.innerHTML = "Computer <br> " + computerScore++; 
+  }
+  if(userScore == 5){
+    document.getElementById('result').innerHTML = 'WINNER!!!!'
+    reset();
+  }
+  if(computerScore == 5){
+    document.getElementById('result').innerHTML = "LOSER RIP BOZO"
+    reset();
+  }
+}
+
